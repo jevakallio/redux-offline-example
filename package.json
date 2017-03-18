@@ -17,10 +17,14 @@
     "expo": "14.0.2",
     "react": "~15.4.0",
     "react-native": "0.41.2",
-    "redux-offline": "^0.0.0"
+    "redux-offline": "^0.0.0",
+    "redux-persist": "^4.5.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.3",
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-env": "^1.2.2",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.26.1",
     "extract-text-webpack-plugin": "^2.0.0-rc.3",

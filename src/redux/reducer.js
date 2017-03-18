@@ -1,4 +1,8 @@
-export default (state = { users: {} }, action) => {
+const initialState = {
+  users: {}
+};
+export default (state = initialState, action) => {
+  console.log('userland', action.type, state);
   switch (action.type) {
     case 'FOLLOW_USER_REQUEST':
       return {

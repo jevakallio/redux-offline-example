@@ -1,5 +1,5 @@
 require('./style.css');
-
+require('./redux/store');
 var OfflinePlugin = require('offline-plugin/runtime');
 
 OfflinePlugin.install({
@@ -7,9 +7,7 @@ OfflinePlugin.install({
     openOfflineReady();
   },
 
-  onUpdating: function() {
-
-  },
+  onUpdating: function() {},
 
   onUpdateReady: function() {
     OfflinePlugin.applyUpdate();
@@ -27,26 +25,29 @@ var wifiShape = document.querySelector('#wifi-shape');
 (function() {
   var rotation = 0;
 
-  setInterval(function() {
-    if (rotation === 300) {
-      rotation = -60;
-      hexagon.removeAttribute('data-animation');
-      hexagon.style.transform = 'rotate(' + rotation + 'deg)';
-    }
-
-    rotation = rotation + 60;
-
-    requestAnimationFrame(function() {
-      requestAnimationFrame(function() {
-        hexagon.setAttribute('data-animation', '');
+  setInterval(
+    function() {
+      if (rotation === 300) {
+        rotation = -60;
+        hexagon.removeAttribute('data-animation');
         hexagon.style.transform = 'rotate(' + rotation + 'deg)';
-      })
-    });
-  }, 3000);
-}());
+      }
+
+      rotation = rotation + 60;
+
+      requestAnimationFrame(function() {
+        requestAnimationFrame(function() {
+          hexagon.setAttribute('data-animation', '');
+          hexagon.style.transform = 'rotate(' + rotation + 'deg)';
+        });
+      });
+    },
+    3000
+  );
+})();
 
 offlineReadyClose.addEventListener('click', function() {
-  closeOfflineReady()
+  closeOfflineReady();
 });
 
 window.addEventListener('offline', function() {
@@ -63,9 +64,12 @@ window.addEventListener('online', function() {
 });
 
 if (!navigator.onLine) {
-  setTimeout(function() {
-    goOffline();
-  }, 300);
+  setTimeout(
+    function() {
+      goOffline();
+    },
+    300
+  );
 }
 
 function goOffline() {
