@@ -1,0 +1,247 @@
+@keyframes offline-online {
+  0% {
+    opacity: 1;
+  }
+
+  10% {
+    opacity: 0;
+  }
+
+  12% {
+    opacity: 1;
+  }
+
+  14% {
+    opacity: 0;
+  }
+
+  16% {
+    opacity: 1;
+  }
+
+  18% {
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  25% {
+    opacity: 0
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  40% {
+    opacity: 0;
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  62% {
+    opacity: 0;
+  }
+
+  64% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 0;
+  }
+
+  84% {
+    opacity: 1;
+  }
+
+  86% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@font-face {
+  font-family: 'Courier Prime';
+  src: url('fonts/courier-prime-webfont.woff2') format('woff2'),
+       url('fonts/courier-prime-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.main {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+
+  background: #181743;
+}
+
+.logo-wrap {
+  display: block;
+  position: relative;
+}
+
+.logo-hexagon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transform: rotate(0deg);
+  will-change: transform;
+}
+
+.logo-hexagon[data-animation] {
+  transition: transform 300ms;
+}
+
+.logo-hexagon > svg {
+  width: 120px;
+  height: auto;
+  transform: rotate(30deg);
+}
+
+.logo > svg {
+  width: 120px;
+  height: auto;
+  max-height: 131px;
+}
+
+.title {
+  color: #07c2ff;
+  font-size: 36px;
+  font-family: 'Courier Prime', 'Courier New', Courier, monospace;
+  line-height: 36px;
+  margin-top: 4px;
+  white-space: nowrap;
+}
+
+.sub-title {
+  font-size: 20px;
+  color: #ff4772;
+  font-family: 'Courier Prime', 'Courier New', Courier, monospace;
+  line-height: 20px;
+  font-style: italic;
+  margin-top: 8px;
+  white-space: nowrap;
+}
+
+.offline-ready {
+  position: fixed;
+  top: 20px;
+  right: 0;
+  background: white;
+  border: 1px solid #07c2ff;
+  border-left: 10px solid #07c2ff;
+  border-right: 0;
+  color: #333;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  padding: 12px 12px;
+  box-sizing: border-box;
+  max-width: 100%;
+  padding-right: 38px;
+
+  transform: translate3d(100%, 0, 0);
+  transition: transform 300ms;
+  will-change: transform;
+
+  user-select: none;
+}
+
+.offline-ready code {
+  background: #efefef;
+  padding: 3px 5px;
+}
+
+.offline-ready a {
+  color: #07c2ff;
+  text-decoration: none;
+}
+
+.offline-ready[data-open] {
+  transform: translate3d(0, 0, 0);
+}
+
+.offline-ready-close {
+  width: 36px;
+  height: 42px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.offline-ready-close svg {
+  width: 12px;
+  height: auto;
+  fill: #07c2ff;
+}
+
+.wifi-offline {
+  opacity: 0;
+  animation: offline-online 2000ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: steps(17);
+}
+
+.wifi-online {
+  opacity: 1;
+  animation: offline-online 2000ms;
+  animation-direction: reverse;
+  animation-fill-mode: forwards;
+  animation-timing-function: steps(17);
+}
+
+.source-code {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  margin-left: -100px;
+  width: 200px;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  color: #016e92;;
+}
+
+.source-code svg {
+  width: 16px;
+  height: 16px;
+  fill: #016e92;
+  margin-left: 6px;
+  margin-top: -1px;
+}
