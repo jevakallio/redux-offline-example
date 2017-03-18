@@ -16,7 +16,8 @@
   "dependencies": {
     "expo": "14.0.2",
     "react": "~15.4.0",
-    "react-native": "0.41.2"
+    "react-native": "0.41.2",
+    "redux-offline": "^0.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.3",

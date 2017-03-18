@@ -60,7 +60,7 @@ module.exports = {
     new ExtractTextPlugin({
       filename: '[name].css'
     }),
-    new CopyWebpackPlugin([{ from: 'favicons' }]),
+    new CopyWebpackPlugin([{ from: 'assets/favicons' }]),
     new OfflinePlugin({
       safeToUseOptionalCaches: true,
       caches: {
