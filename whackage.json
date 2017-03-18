@@ -1,0 +1,11 @@
+{
+  "include": "/**/*.js",
+  "exclude": [
+    "/node_modules/*",
+    ".babelrc",
+    ".git"
+  ],
+  "dependencies": {
+    "redux-offline": "../redux-offline"
+  }
+}
