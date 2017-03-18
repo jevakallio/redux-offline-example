@@ -8,7 +8,7 @@ import Users from './Users';
 
 const mapStateToProps = state => ({
   following: state.users,
-  messages: state.offline.outbox,
+  outbox: state.offline.outbox,
   isOnline: state.offline.online
 });
 
@@ -26,7 +26,7 @@ const Main = props => (
       followUser={props.followUser}
       unfollowUser={props.unfollowUser}
     />
-    <OfflineQueue isOnline={props.isOnline} messages={props.messages} />
+    <OfflineQueue isOnline={props.isOnline} actions={props.outbox} />
     <View style={styles.buttons}>
       <Button onPress={props.goOffline} title="Go offline" />
       <Button onPress={props.goOnline} title="Go online" />
